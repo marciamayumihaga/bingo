@@ -25,3 +25,18 @@
     border: 2px solid orange;
     font-weight: bold;
 }
+.numero-sorteado-pedra-maior {
+    display: inline-block;
+    text-align: center;
+    font-weight: normal;
+    border: 1px solid black;
+}
+.ultimo-numero-sorteado-pedra-maior {
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid black;
+}
+.pedra-maior {
+    background-color: orange;
+}
