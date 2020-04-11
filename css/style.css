@@ -1,0 +1,27 @@
+.ultimo-numero-sorteado {
+    background-color: greenyellow;
+}
+.ultima-letra-sorteada {
+    background-color: orange;
+}
+.numero-sorteado {
+    background-color: lightseagreen;
+}
+.letra {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+}
+.numero {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid;
+}
+#divNumeroSorteado {
+    width: 50px;
+    height: 50px;
+    border: 2px solid orange;
+    font-weight: bold;
+}
