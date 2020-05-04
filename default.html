@@ -1,17 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-	<title>Sorteio da pedra maior</title>
+	<title>Bingo</title>
 	<head>
+	    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="js/default.js"></script>
 		<link type="text/css" rel="stylesheet" href="css/style.css"></link>
+		<link href="images/favicon.png" rel="icon">	
+		
 	</head>
 	<body>
-		<h1>Bingo</h1>
-		<input type="button" id="btnSortear" value="Sortear" onclick="sortear();"/>
-		<input type="button" id="btnReiniciar" value="Iniciar novo" onclick="reiniciar();"/>
-		<a id="btnSorteioPedraMaior" href="sorteioPedraMaior.html" target="blank">Sorteio da pedra maior</a>
-		<div id="divNumeroSorteado"></div>
+	    <header class="topo-principal">
+            <div class="topo-principal__botoes">
+                <input type="button" id="btnReiniciar" value="NOVO JOGO" onclick="reiniciar();" class="btn"/>
+                <a id="btnSorteioPedraMaior" href="sorteioPedraMaior.html" target="blank" class="btn">Desempatar na pedra maior</a>
+            </div>
+           
+            <div class="topo-principal__personagem">
+                <button id="btnSortear" onclick="sortear();" onmousedown="dance();" onmouseup="stopDance();" ontouchstart="dance();" ontouchend="stopDance();" class="personagem">
+                <div id="divNumeroSorteado"></div>
+                </button>
+                
+                <p class="texto-descricao">Clique no personagem para remexer e sortear!</p>
+            </div>
+	    </header>
+		
 		<ul id="divPainelBolinhas"></ul>
 		<ul style="display:none;">
 			<li id="divModeloLinha">

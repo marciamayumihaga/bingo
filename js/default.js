@@ -4,6 +4,8 @@ let divisaoNumeros = [{letra:"B", inicio:1, fim:15}
                     , {letra:"G", inicio:46, fim:60}
                     , {letra:"O", inicio:61, fim:75}];
 
+let sorteioIniciado = false;
+
 $(function() {
     let painelBolinhas = $("#divPainelBolinhas");
     let modeloLinha = $("<div>").append($("#divModeloLinha").clone()).html();
@@ -25,8 +27,14 @@ $(function() {
 });
 
 function sortear() {
+    sorteioIniciado = true;
+    if ( sorteioIniciado == true ){
+        $('body').addClass('sorteando');
+    }
+    
     let numeroSorteado = Math.floor(Math.random() * 75) + 1;
     let numero = $("#numero" + numeroSorteado);
+        
     while (numero.hasClass("numero-sorteado") || numero.hasClass("ultimo-numero-sorteado")) {
         numeroSorteado = Math.floor(Math.random() * 75) + 1;
         numero = $("#numero" + numeroSorteado);
@@ -43,10 +51,22 @@ function sortear() {
     }
 }
 
+function dance(){
+    $('.personagem').addClass("danca");
+}
+
+function stopDance(){
+   setTimeout(function(){
+        $('.personagem').removeClass("danca");
+    },800);
+}
+
 function reiniciar() {
     $(".numero-sorteado").removeClass("numero-sorteado");
     $(".ultimo-numero-sorteado").removeClass("ultimo-numero-sorteado");
     $(".ultima-letra-sorteada").removeClass("ultima-letra-sorteada");
     $("#divNumeroSorteado").html("");
     $("#btnSortear").removeAttr("disabled");
+    
+    $('body').removeClass('sorteando');
 }

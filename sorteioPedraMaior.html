@@ -2,17 +2,25 @@
 <html>
 	<title>Bingo</title>
 	<head>
+	    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="js/sorteioPedraMaior.js"></script>
 		<link type="text/css" rel="stylesheet" href="css/style.css"></link>
+		<link href="images/favicon.png" rel="icon">
 	</head>
-	<body>
-        <h1>Sorteio da pedra maior</h1>
-		<input type="button" id="btnSortearPedraMaior" value="Sortear" onclick="sortearPedraMaior();"/>
-		<input type="button" id="btnReiniciarPedraMaior" value="Reiniciar sorteio" onclick="reiniciarPedraMaior();"/>
-		<div id="divNumerosSorteadosPedraMaior"></div>
-		<div style="display:none;">
-			<div id="divModeloNumeroSorteadoPedraMaior" class="numero-sorteado-pedra-maior">#VALOR_NUMERO_SORTEADO_PEDRA_MAIOR#</div>
+	<body class="pedra-maior__body">
+        <div class="pedra-maior__area">
+            <h1>Sorteio da pedra maior</h1>
+            <input type="button" id="btnSortearPedraMaior" value="Sortear" onclick="sortearPedraMaior();" class="btn"/>
+            <input type="button" id="btnReiniciarPedraMaior" value="Reiniciar sorteio" onclick="reiniciarPedraMaior();" class="btn"/>
+
+            <div id="divNumerosSorteadosPedraMaior"></div>
+            <div style="display:none;">
+                <div id="divModeloNumeroSorteadoPedraMaior" class="numero-sorteado-pedra-maior">#VALOR_NUMERO_SORTEADO_PEDRA_MAIOR#</div>
+            </div>
 		</div>
 	</body>
 </html>

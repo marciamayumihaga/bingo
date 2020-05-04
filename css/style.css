@@ -1,42 +1,386 @@
-.ultimo-numero-sorteado {
-    background-color: greenyellow;
-}
-.ultima-letra-sorteada {
-    background-color: orange;
-}
-.numero-sorteado {
-    background-color: lightseagreen;
-}
-.letra {
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap");
+body {
+  font-family: "Quicksand", sans-serif;
+  color: #464c6b;
+  text-align: center; }
+
+html, body, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.topo-principal {
+  background: #f3dee5 url("../images/detalhe_topo.png") top center no-repeat;
+  background-attachment: fixed;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  text-align: center; }
+
+ul {
+  list-style: none; }
+
+.topo-principal__botoes {
+  text-align: right;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 5px 8px;
+  z-index: 5; }
+
+.btn {
+  padding: 8px 16px;
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background: #6160bd;
+  text-decoration: none;
+  border: 1px solid #6160bd;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.2s ease-out;
+  display: inline-block;
+  margin: 3px;
+  text-align: center; }
+
+.btn:hover {
+  transform: scale(1.05);
+  cursor: pointer; }
+
+.btn#btnSorteioPedraMaior, .btn#btnReiniciarPedraMaior {
+  background: transparent;
+  border-color: #df4968;
+  color: #df4968; }
+
+#divPainelBolinhas {
+  margin: auto;
+  display: inline-block; }
+  #divPainelBolinhas li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; }
+
+.numero, #divNumeroSorteado, .numero-sorteado-pedra-maior {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  background: rgba(97, 96, 189, 0.12);
+  box-shadow: inset -1px 1px 3px rgba(70, 76, 107, 0.1);
+  border-radius: 50%;
+  text-align: center;
+  margin: 5px;
+  font-size: 36px;
+  font-weight: bold;
+  color: rgba(70, 69, 165, 0.6);
+  transition: all 0.2s ease-out;
+  font-family: "Quicksand", sans-serif;
+  position: relative; }
+
+#divNumeroSorteado, .numero-sorteado-pedra-maior.pedra-maior, .numero.ultimo-numero-sorteado, .numero-sorteado {
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+  #divNumeroSorteado:before, .numero-sorteado-pedra-maior.pedra-maior:before, .numero.ultimo-numero-sorteado:before, .numero-sorteado:before {
+    content: '';
+    background: url(../images/brilho_bola.png) 85% 18% no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 21%; }
+  #divNumeroSorteado:after, .numero-sorteado-pedra-maior.pedra-maior:after, .numero.ultimo-numero-sorteado:after, .numero-sorteado:after {
+    content: '';
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    font-weight: bold;
-}
-.numero {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border: 1px solid;
-}
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: inset -10px 10px 30px #adfc9f78; }
+
+.numero-sorteado:after {
+  box-shadow: inset -10px 10px 30px #fc9ff978; }
+
 #divNumeroSorteado {
+  background: #20865e;
+  color: #fff; }
+
+.numero.ultimo-numero-sorteado {
+  text-shadow: none;
+  animation: anim-grow 0.5s 0.8s ease-out forwards;
+  z-index: 1; }
+  .numero.ultimo-numero-sorteado:after, .numero.ultimo-numero-sorteado:before {
+    opacity: 0;
+    animation: anim-lights 0.5s 0.8s ease-out forwards; }
+
+#divNumeroSorteado:empty {
+  display: none; }
+
+@keyframes anim-grow {
+  0% {
+    transform: scale(1);
+    text-shadow: none;
+    box-shadow: inset 15px -10px 50px rgba(32, 44, 63, 0.3); }
+  30%, 70% {
+    transform: scale(1.5);
+    background: #20865e;
+    color: #fff;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 15px -10px 50px rgba(32, 44, 63, 0.3); }
+  100% {
+    transform: scale(1.15);
+    background: #20865e;
+    color: #fff;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 15px -10px 50px rgba(32, 44, 63, 0.3); } }
+@keyframes anim-lights {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+.numero-sorteado {
+  background: #4645a5;
+  color: #fff; }
+
+.numero-sorteado, #divNumeroSorteado {
+  box-shadow: inset 15px -10px 50px rgba(32, 44, 63, 0.3); }
+
+.letra {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  line-height: 76px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid rgba(223, 73, 104, 0.3);
+  color: #df4968;
+  font-size: 32px;
+  margin: 5px;
+  transition: all 0.2 ease-out; }
+
+.letra.ultima-letra-sorteada {
+  animation: anim-letter 0.5s 0.8s ease-out forwards; }
+
+@keyframes anim-letter {
+  0% {
+    transform: scale(1); }
+  30%, 70% {
+    transform: scale(1.15);
+    background-color: #df4968;
+    color: #fff; }
+  100% {
+    transform: scale(1.15);
+    background-color: #df4968;
+    color: #fff; } }
+.topo-principal__personagem .personagem {
+  width: 382px;
+  height: 350px;
+  background: url("../images/init_pose.png");
+  border: none;
+  outline: none;
+  animation: none;
+  background-position: center;
+  background-repeat: no-repeat !important;
+  position: relative; }
+  .topo-principal__personagem .personagem:hover {
+    cursor: pointer;
+    background: url("../images/sprite_poses_init.png");
+    animation: danceInit 0.85s steps(7, end) infinite; }
+  .topo-principal__personagem .personagem #divNumeroSorteado {
+    border: 4px solid rgba(0, 0, 0, 0.2);
+    line-height: 90px; }
+  .topo-principal__personagem .personagem.danca {
+    background: url("../images/sprite_poses_.png");
+    animation: dance 0.7s steps(6, end) infinite; }
+    .topo-principal__personagem .personagem.danca #divNumeroSorteado {
+      opacity: 0;
+      transition: all 0.2s ease-out; }
+
+@media screen and (max-width: 422px) {
+  .topo-principal__personagem {
+    max-width: 100%;
+    overflow: hidden; }
+    .topo-principal__personagem .personagem {
+      transform: scale(0.7) translateX(-22%); } }
+@keyframes danceInit {
+  100% {
+    background-position: -2674px; } }
+@keyframes dance {
+  100% {
+    background-position: -2292px; } }
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1.5); }
+  15% {
+    transform: translateY(-20px) scaleY(0.8) scaleX(1.7); }
+  20%,65% {
+    transform: translateY(-40px) scale(1.5); }
+  70% {
+    transform: translateY(-30px) scaleY(1.5); }
+  75%,85% {
+    transform: translateY(20px) scaleY(0.8) scaleX(1.7); } }
+.topo-principal__personagem {
+  display: inline-block;
+  position: relative; }
+  .topo-principal__personagem #divNumeroSorteado {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 36%;
+    margin-top: -5%;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 48px; }
+  .topo-principal__personagem .texto-descricao {
+    position: absolute;
+    width: 200px;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin-left: 58%;
+    margin-bottom: 20%;
+    text-align: left;
+    transition: all 0.2s ease-out;
+    font-size: 0.9rem;
+    color: #464c6b; }
+
+body:not(.sorteando) .topo-principal__personagem .texto-descricao {
+  background: #df4968;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 3px;
+  margin-bottom: 39%;
+  margin-left: 45%;
+  border: 2px solid rgba(0, 0, 0, 0.2); }
+
+@media screen and (max-width: 700px) {
+  .topo-principal__personagem .texto-descricao {
+    display: none; }
+
+  .topo-principal__botoes {
+    position: static;
+    text-align: center; } }
+.pedra-maior__body {
+  display: flex;
+  background: #f3dee5 url("../images/fundo_pedra_maior.png") top center no-repeat;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 30px; }
+  .pedra-maior__body .pedra-maior__area {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(62, 61, 147, 0.2);
+    transition: all 0.2s ease-out; }
+  .pedra-maior__body h1 {
+    color: #3e3d93;
+    margin-bottom: 20px;
+    margin-top: 15px; }
+  .pedra-maior__body #divNumerosSorteadosPedraMaior {
+    margin-top: 20px; }
+  .pedra-maior__body .ultimo-numero-sorteado-pedra-maior {
+    border: 1px solid rgba(73, 72, 173, 0.4); }
+  .pedra-maior__body .numero-sorteado-pedra-maior.pedra-maior {
+    background: #4645a5;
+    color: #fff; }
+    .pedra-maior__body .numero-sorteado-pedra-maior.pedra-maior:after {
+      box-shadow: inset -10px 10px 30px #fc9ff978; }
+
+.numero-sorteado-pedra-maior {
+  transform: scale(0);
+  animation: anim-grow-pedra-maior 2s ease-out forwards;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center; }
+
+@keyframes anim-grow-pedra-maior {
+  0% {
+    transform: scale(0);
+    font-size: 0; }
+  98% {
+    font-size: 0; }
+  100% {
+    transform: scale(1);
+    font-size: 36px; } }
+@media screen and (max-width: 1750px) {
+  #divPainelBolinhas .numero, .letra {
+    width: 82px;
+    height: 82px;
+    line-height: 82px;
+    font-size: 34px; }
+
+  .letra {
+    line-height: 78px; } }
+@media screen and (max-width: 1650px) {
+  #divPainelBolinhas .numero, .letra {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    font-size: 32px; }
+
+  .letra {
+    line-height: 71px; } }
+@media screen and (max-width: 1550px) {
+  #divPainelBolinhas .numero, .letra {
+    width: 65px;
+    height: 65px;
+    line-height: 65px;
+    font-size: 30px; }
+
+  .letra {
+    line-height: 61px; } }
+@media screen and (max-width: 1450px) {
+  #divPainelBolinhas .numero, .letra {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 28px; }
+
+  .letra {
+    line-height: 54px; } }
+@media screen and (max-width: 1350px) {
+  #divPainelBolinhas .numero, .letra {
     width: 50px;
     height: 50px;
-    border: 2px solid orange;
-    font-weight: bold;
-}
-.numero-sorteado-pedra-maior {
-    display: inline-block;
-    text-align: center;
-    font-weight: normal;
-    border: 1px solid black;
-}
-.ultimo-numero-sorteado-pedra-maior {
-    display: inline-block;
-    text-align: center;
-    font-weight: bold;
-    border: 2px solid black;
-}
-.pedra-maior {
-    background-color: orange;
-}
+    line-height: 50px;
+    font-size: 24px; }
+
+  .letra {
+    line-height: 46px; } }
+@media screen and (max-width: 1250px) {
+  #divPainelBolinhas .numero, .letra {
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 20px; }
+
+  .letra {
+    line-height: 38px; }
+
+  #divPainelBolinhas li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px 8px; } }
+@media screen and (max-width: 860px) {
+  #divPainelBolinhas li {
+    justify-content: center;
+    border-bottom: none; }
+
+  .letra {
+    width: 100%; } }
+
+/*# sourceMappingURL=style.css.map */

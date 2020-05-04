@@ -18,12 +18,14 @@ function sortearPedraMaior()  {
     let tamanhoNumeroSorteado = 50 + (numeroSorteado - 1) * 2;
     novoNumeroSorteado.css("width", tamanhoNumeroSorteado);
     novoNumeroSorteado.css("height", tamanhoNumeroSorteado);
-    novoNumeroSorteado.css("line-height", tamanhoNumeroSorteado + "px");
+    //novoNumeroSorteado.css("line-height", tamanhoNumeroSorteado + "px");
     novoNumeroSorteado.css("border-radius", tamanhoNumeroSorteado);
-    // Destaca a bolinha de pedra maior
-    if (verificaPedraMaior(numeroSorteado)) {
-        $(".pedra-maior").removeClass("pedra-maior");
-        novoNumeroSorteado.addClass("pedra-maior");
+    // Destaca a bolinha de pedra maior        
+    if (verificaPedraMaior(numeroSorteado)) {     
+        $(".pedra-maior").removeClass("pedra-maior"); 
+        setTimeout(function(){
+            novoNumeroSorteado.addClass("pedra-maior");
+        },2000);        
     }
     if (numerosSorteados.length == 75) {
         $("#btnSortearPedraMaior").attr("disabled", "disabled");
