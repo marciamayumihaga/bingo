@@ -21,9 +21,9 @@ function sortearPedraMaior()  {
     //novoNumeroSorteado.css("line-height", tamanhoNumeroSorteado + "px");
     novoNumeroSorteado.css("border-radius", tamanhoNumeroSorteado);
     // Destaca a bolinha de pedra maior        
-    if (verificaPedraMaior(numeroSorteado)) {     
-        $(".pedra-maior").removeClass("pedra-maior"); 
+    if (verificaPedraMaior(numeroSorteado)) {       
         setTimeout(function(){
+            $(".pedra-maior").removeClass("pedra-maior"); 
             novoNumeroSorteado.addClass("pedra-maior");
         },2000);        
     }
