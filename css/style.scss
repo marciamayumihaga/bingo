@@ -29,7 +29,7 @@ html, body, *{
     background-attachment: fixed;
     margin-bottom: 15px;
     padding: 0 20px; 
-    text-align: center;
+    text-align: center;    
 }
 
 ul{
@@ -44,7 +44,15 @@ ul{
     right: 0;
     top: 0;
     padding: 5px 8px;
-    z-index: 5;
+    z-index: 5;    
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    
+    .som-container{
+        flex:1;
+        text-align: left;
+    }
 }
 
 .btn{
@@ -535,4 +543,28 @@ body:not(.sorteando){
     .letra{
         width: 100%;
     }
+}
+
+.som-desativado, .som-ativado{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border:none;
+    outline: none;
+    border-radius: 50px;
+    text-align: center;
+    transition:all 0.2s ease-out;
+    
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+.som-desativado{    
+    background: $secondary-color url('../images/ico_mudo.png') center no-repeat;
+}
+
+.som-ativado{
+    background: $secondary-color url('../images/ico_som.png') center no-repeat;
 }
