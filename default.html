@@ -9,12 +9,25 @@
 		<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="js/default.js"></script>
 		<link type="text/css" rel="stylesheet" href="css/style.css"></link>
-		<link href="images/favicon.png" rel="icon">	
-		
+		<link href="images/favicon.png" rel="icon">			
+
+		<style>
+			.som-ativado {
+				width: 20px;
+				height: 20px;
+				background-color: green;
+			}
+			.som-desativado {
+				width: 20px;
+				height: 20px;
+				background-color: red;
+			}
+		</style>
 	</head>
 	<body>
 	    <header class="topo-principal">
             <div class="topo-principal__botoes">
+				<button id="btnAtivarSom" title="Som desativado" onclick="ativarSom();" class="som-desativado"></button>
                 <input type="button" id="btnReiniciar" value="NOVO JOGO" onclick="reiniciar();" class="btn"/>
                 <a id="btnSorteioPedraMaior" href="sorteioPedraMaior.html" target="blank" class="btn">Desempatar na pedra maior</a>
             </div>

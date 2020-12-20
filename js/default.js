@@ -5,6 +5,8 @@ let divisaoNumeros = [{letra:"B", inicio:1, fim:15}
                     , {letra:"O", inicio:61, fim:75}];
 
 let sorteioIniciado = false;
+let ultimoNumeroCantado = "";
+let audio;
 
 $(function() {
     let painelBolinhas = $("#divPainelBolinhas");
@@ -48,16 +50,21 @@ function sortear() {
     $("#divNumeroSorteado").html(numeroSorteado);
     if ($(".numero-sorteado,.ultimo-numero-sorteado").length == 75) {
         $("#btnSortear").attr("disabled", "disabled");
+    }   
+    if ($("#btnAtivarSom").hasClass("som-ativado") && ultimoNumeroCantado != $("#divNumeroSorteado").html()) {
+        ultimoNumeroCantado = $("#divNumeroSorteado").html();
+        audio = new Audio("audio/" + ultimoNumeroCantado + ".mp3");
+        audio.play();
     }
 }
 
 function dance(){
-    $('.personagem').addClass("danca");
+    $('.personagem').addClass("danca");    
 }
 
 function stopDance(){
    setTimeout(function(){
-        $('.personagem').removeClass("danca");
+        $('.personagem').removeClass("danca");       
     },800);
 }
 
@@ -69,4 +76,19 @@ function reiniciar() {
     $("#btnSortear").removeAttr("disabled");
     
     $('body').removeClass('sorteando');
+}
+
+
+function ativarSom() {
+    if ($("#btnAtivarSom").hasClass("som-desativado"))
+    {
+        $("#btnAtivarSom").removeClass("som-desativado");
+        $("#btnAtivarSom").addClass("som-ativado");
+        $("#btnAtivarSom").attr("title", "Som ativado");
+    }
+    else {
+        $("#btnAtivarSom").removeClass("som-ativado");
+        $("#btnAtivarSom").addClass("som-desativado");
+        $("#btnAtivarSom").attr("title", "Som desativado");
+    }
 }
