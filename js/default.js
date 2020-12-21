@@ -7,6 +7,7 @@ let divisaoNumeros = [{letra:"B", inicio:1, fim:15}
 let sorteioIniciado = false;
 let ultimoNumeroCantado = "";
 let audio;
+let sorteando = false;
 
 $(function() {
     let painelBolinhas = $("#divPainelBolinhas");
@@ -29,41 +30,45 @@ $(function() {
 });
 
 function sortear() {
-    sorteioIniciado = true;
-    if ( sorteioIniciado == true ){
-        $('body').addClass('sorteando');
-    }
-    
-    let numeroSorteado = Math.floor(Math.random() * 75) + 1;
-    let numero = $("#numero" + numeroSorteado);
+    if (!sorteando) {
+        sorteando = true;
+        sorteioIniciado = true;
+        if ( sorteioIniciado == true ){
+            $('body').addClass('sorteando');
+        }
         
-    while (numero.hasClass("numero-sorteado") || numero.hasClass("ultimo-numero-sorteado")) {
-        numeroSorteado = Math.floor(Math.random() * 75) + 1;
-        numero = $("#numero" + numeroSorteado);
-    }
-    $(".ultimo-numero-sorteado").addClass("numero-sorteado");
-    $(".ultimo-numero-sorteado").removeClass("ultimo-numero-sorteado");
-    numero.addClass("ultimo-numero-sorteado");
-    $(".ultima-letra-sorteada").removeClass("ultima-letra-sorteada");
-    let letra = numero.parents("[id^='linha']").find("[id^='letra']");
-    letra.addClass("ultima-letra-sorteada");
-    $("#divNumeroSorteado").html(numeroSorteado);
-    if ($(".numero-sorteado,.ultimo-numero-sorteado").length == 75) {
-        $("#btnSortear").attr("disabled", "disabled");
+        let numeroSorteado = Math.floor(Math.random() * 75) + 1;
+        let numero = $("#numero" + numeroSorteado);
+            
+        while (numero.hasClass("numero-sorteado") || numero.hasClass("ultimo-numero-sorteado")) {
+            numeroSorteado = Math.floor(Math.random() * 75) + 1;
+            numero = $("#numero" + numeroSorteado);
+        }
+        $(".ultimo-numero-sorteado").addClass("numero-sorteado");
+        $(".ultimo-numero-sorteado").removeClass("ultimo-numero-sorteado");
+        numero.addClass("ultimo-numero-sorteado");
+        $(".ultima-letra-sorteada").removeClass("ultima-letra-sorteada");
+        let letra = numero.parents("[id^='linha']").find("[id^='letra']");
+        letra.addClass("ultima-letra-sorteada");
+        $("#divNumeroSorteado").html(numeroSorteado);
+        if ($(".numero-sorteado,.ultimo-numero-sorteado").length == 75) {
+            $("#btnSortear").attr("disabled", "disabled");
+        }   
+        if ($("#btnAtivarSom").hasClass("som-ativado") && ultimoNumeroCantado != $("#divNumeroSorteado").html()) {
+            ultimoNumeroCantado = $("#divNumeroSorteado").html();
+            audio = new Audio("audio/" + ultimoNumeroCantado + ".mp3");
+            audio.play();
+        }
     }   
-    if ($("#btnAtivarSom").hasClass("som-ativado") && ultimoNumeroCantado != $("#divNumeroSorteado").html()) {
-        ultimoNumeroCantado = $("#divNumeroSorteado").html();
-        audio = new Audio("audio/" + ultimoNumeroCantado + ".mp3");
-        audio.play();
-    }
 }
 
 function dance(){
     $('.personagem').addClass("danca");    
 }
 
-function stopDance(){
-   setTimeout(function(){
+function stopDance(){    
+    setTimeout(function(){
+        sorteando = false;
         $('.personagem').removeClass("danca");       
     },800);
 }
