@@ -14,13 +14,16 @@
 	<body>
 	    <header class="topo-principal">
             <div class="topo-principal__botoes">
-				<div class="som-container"><button id="btnAtivarSom" title="Som desativado" onclick="ativarSom();" class="som-desativado"></button></div>
+				<div class="som-container">
+					<button id="btnAtivarSom" title="Som desativado" onclick="ativarSom();" class="som-desativado"></button>
+					<span id="spanTipoSom" style="display:none"></span>
+				</div>
                 <input type="button" id="btnReiniciar" value="NOVO JOGO" onclick="reiniciar();" class="btn"/>
                 <a id="btnSorteioPedraMaior" href="sorteioPedraMaior.html" target="blank" class="btn">Desempatar na pedra maior</a>
             </div>
            
             <div class="topo-principal__personagem">
-				<button id="btnSortear" onclick="sortear();" onmousedown="dance();" onmouseup="stopDance();" ontouchstart="dance();" ontouchend="stopDance();" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) { dance(); }" onkeyup="if (event.keyCode == 13 || event.keyCode == 32) { stopDance(); }" class="personagem">
+				<button id="btnSortear" onclick="sortear();" onmousedown="dance();" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) { dance(); }" class="personagem">
                 	<div id="divNumeroSorteado"></div>
                 </button>
                 

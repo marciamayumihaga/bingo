@@ -505,4 +505,18 @@ body:not(.sorteando) .topo-principal__personagem .texto-descricao {
   background: #df4968 url("../images/ico_som.png") center no-repeat;
 }
 
+.som-container span {
+	background-color: transparent;
+    font-weight: bold;
+    color: #df4968;
+    border-radius: 50px;
+    min-width: 25px;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.8rem;
+    border: 1px solid #df4968;
+    left: -7px;
+    z-index: 2;
+    position: relative;
+}
 /*# sourceMappingURL=style.css.map */
